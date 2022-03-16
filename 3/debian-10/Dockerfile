@@ -18,7 +18,10 @@ RUN . /opt/bitnami/scripts/libcomponent.sh && component_unpack "spark" "3.2.1-7"
 RUN . /opt/bitnami/scripts/libcomponent.sh && component_unpack "gosu" "1.14.0-7" --checksum d6280b6f647a62bf6edc74dc8e526bfff63ddd8067dcb8540843f47203d9ccf1
 RUN apt-get update && apt-get upgrade -y && \
     rm -r /var/lib/apt/lists /var/cache/apt/archives
+RUN apt-get -y install nano
+RUN apt-get -y install nmap
 RUN chmod g+rwX /opt/bitnami
+
 
 COPY rootfs /
 RUN /opt/bitnami/scripts/spark/postunpack.sh
